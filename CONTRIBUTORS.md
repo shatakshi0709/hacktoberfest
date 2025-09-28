@@ -4,7 +4,7 @@
  - GitHub: [Vallenain](https://github.com/Vallenain)
 
  ### Name: [SHATAKSHI KATIYAR]
- -Place: India
+ -Place: Pune/Maharatshtra/India
  -Bio: first year Computer Science[AI+ML] Student 
 
 #### Name: [AGNIESZKA MISZKURKA](https://github.com/agnieszka-miszkurka)
