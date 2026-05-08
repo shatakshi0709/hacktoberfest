@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg: 10 12 18;
+    --panel: 15 18 28;
+    --panel-2: 20 24 38;
+    --border: 35 44 72;
+    --text: 226 232 240;
+    --muted: 148 163 184;
+    --accent: 34 211 238;
+    --accent-2: 167 139 250;
+    --danger: 248 113 113;
+    --ok: 74 222 128;
+    --warning: 251 191 36;
+    color-scheme: dark;
+  }
+
+  :root[data-theme='light'] {
+    --bg: 248 250 252;
+    --panel: 255 255 255;
+    --panel-2: 241 245 249;
+    --border: 226 232 240;
+    --text: 15 23 42;
+    --muted: 71 85 105;
+    --accent: 8 145 178;
+    --accent-2: 109 40 217;
+    --danger: 220 38 38;
+    --ok: 22 163 74;
+    --warning: 217 119 6;
+    color-scheme: light;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-[rgb(var(--bg))] text-[rgb(var(--text))] antialiased;
+    background-image:
+      radial-gradient(1200px 700px at 15% 10%, rgba(var(--accent) / 0.12), transparent 60%),
+      radial-gradient(1000px 600px at 85% 15%, rgba(var(--accent-2) / 0.10), transparent 55%),
+      radial-gradient(900px 600px at 40% 80%, rgba(59 130 246 / 0.10), transparent 60%);
+  }
+
+  ::selection {
+    background: rgba(var(--accent) / 0.25);
+  }
+}
+
+@layer components {
+  .mc-panel {
+    @apply rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--panel))] shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_20px_40px_-28px_rgba(0,0,0,0.65)];
+  }
+
+  .mc-panel-glass {
+    @apply rounded-2xl border border-[rgb(var(--border))] bg-[rgb(var(--panel))]/70 shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_20px_40px_-28px_rgba(0,0,0,0.65)] backdrop-blur-xl;
+  }
+
+  .mc-button {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-[rgb(var(--border))] bg-[rgb(var(--panel-2))] px-4 py-2 text-sm font-medium text-[rgb(var(--text))] transition hover:brightness-110 active:translate-y-px;
+  }
+
+  .mc-button-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-transparent bg-[rgb(var(--accent))] px-4 py-2 text-sm font-medium text-slate-950 transition hover:brightness-105 active:translate-y-px;
+  }
+
+  .mc-chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-[rgb(var(--border))] bg-[rgb(var(--panel-2))]/70 px-3 py-1 text-xs text-[rgb(var(--muted))];
+  }
+}
+
+@layer utilities {
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
